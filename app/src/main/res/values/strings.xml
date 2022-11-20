@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">我的第一个应用</string>
-    <string name="hw_str">你好</string>
-    <string name="hw_test">我喜欢Android开发</string>
-    <string name="Android">我还喜欢Android</string>
-    <string name="alielie">你好你好</string>
+    <string name="app_name">Bookshelf-jyh-1</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="sure_to_delete">Are you sure to delete the item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="new_title">Title</string>
+    <string name="new_name">Name</string>
+    <string name="button_确定">确定</string>
+    <string name="button_取消">取消</string>
+    <string name="update">the book updated!</string>
 </resources>

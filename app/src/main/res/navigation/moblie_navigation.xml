@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/moblie_navigation"
+    app:startDestination="@id/navigation_book">
+
+    <fragment android:id="@+id/navigation_book"
+        android:name="com.jnu.student.ui.fragment_book"
+        android:label="book"
+        tools:layout="@layout/fragment_book"/>
+
+    <fragment android:id="@+id/navigation_bookshelf"
+        android:name="com.jnu.student.ui.fragment_bookshelf"
+        android:label="bookshelf"
+        tools:layout="@layout/fragment_bookshelf"/>
+
+    <fragment android:id="@+id/navigation_about"
+        android:name="com.jnu.student.ui.fragment_about"
+        android:label="about"
+        tools:layout="@layout/fragment_about"/>
+</navigation>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg_tabbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/tab_book"
+            style="@style/TabButton"
+            android:checked="true"
+            android:text="书籍"
+            android:drawableTop="@drawable/ic_tab_navigation_book"
+            android:backgroundTint="@color/tab_navigation_button_color"/>
+
+        <RadioButton
+            android:id="@+id/tab_bookshelf"
+            style="@style/TabButton"
+            android:text="分类"
+            android:drawableTop="@drawable/ic_tab_navigation_bookshelf"
+            android:backgroundTint="@color/tab_navigation_button_color"/>
+
+        <RadioButton
+            android:id="@+id/tab_about"
+            style="@style/TabButton"
+            android:text="关于"
+            android:drawableTop="@drawable/ic_tab_navigation_about"
+            android:backgroundTint="@color/tab_navigation_button_color"/>
+    </RadioGroup>
+
+</LinearLayout>
