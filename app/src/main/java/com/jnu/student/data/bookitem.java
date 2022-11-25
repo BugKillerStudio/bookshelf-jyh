@@ -1,6 +1,8 @@
 package com.jnu.student.data;
 
-public class bookitem {
+import java.io.Serializable;
+
+public class bookitem implements Serializable {
     public bookitem(String title, String author,String publish,String isbn,String bookshelf,Double price, int resourceId) {
         this.title = title;
         this.author = author;
@@ -11,7 +13,6 @@ public class bookitem {
 
         this.resourceId = resourceId;
         this.position = getposition();
-
 
     }
 

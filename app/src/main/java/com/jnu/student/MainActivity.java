@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                         String bookshelf= bundle.getString("bookshelf");
                         double price=bundle.getDouble("price");
                         int position=bundle.getInt("position")+1;
-                        Log.e("position",position+"");
                         bookitems.add(position, new bookitem(title,author,publish,isbn,bookshelf,price,R.drawable.book_no_name) );
                         new DataSaver().Save(this,bookitems);
                         mainRecycleViewAdapter.notifyItemInserted(position);
@@ -72,23 +71,18 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerViewMain=findViewById(R.id.booklist_recycler_view);
 
-        DataSaver dataSaver = new DataSaver();
-        bookitems = dataSaver.Load(this);
-
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewMain.setLayoutManager(linearLayoutManager);
 
+        DataSaver dataSaver = new DataSaver();
+        bookitems = dataSaver.Load(this);
 
-//        for(int i=1;i<20;++i)
-//        {
-//            bookitems.add(new bookitem("item "+i,Math.random()*10,i%2==1?R.drawable.book1:R.drawable.book2) );
-//        }
-        bookitems = new ArrayList<>();
-        bookitems.add(new bookitem("book1 ","author1","tsinghua","1234567890","default",(double)100.0,R.drawable.book1));
-        bookitems.add(new bookitem("book1 ","author2","jnu","1234567890","default",(double)100.0,R.drawable.book2));
-        bookitems.add(new bookitem("book1 ","author3","alibaba","1234567890","default",(double)100.0,R.drawable.book3));
-        bookitems.add(new bookitem("book1 ","author4","baidu","1234567890","default",(double)100.0,R.drawable.book4));
+//        bookitems = new ArrayList<>();
+//        bookitems.add(new bookitem("book1 ","author1","tsinghua","1234567890","default",(double)100.0,R.drawable.book1));
+//        bookitems.add(new bookitem("book1 ","author2","jnu","1234567890","default",(double)100.0,R.drawable.book2));
+//        bookitems.add(new bookitem("book1 ","author3","alibaba","1234567890","default",(double)100.0,R.drawable.book3));
+//        bookitems.add(new bookitem("book1 ","author4","baidu","1234567890","default",(double)100.0,R.drawable.book4));
         mainRecycleViewAdapter= new MainRecycleViewAdapter(bookitems);
         recyclerViewMain.setAdapter(mainRecycleViewAdapter);
     }
@@ -258,7 +252,6 @@ public class MainActivity extends AppCompatActivity {
             viewHolder.getTextViewTitle().setText("Name: "+localDataSet.get(position).getTitle());
             viewHolder.getTextViewAuthor().setText("Author: "+localDataSet.get(position).getAuthor());
             viewHolder.getTextViewBookshelf().setText("Bookshelf: "+localDataSet.get(position).getBookshelf());
-
             viewHolder.getTextViewPrice().setText("Price: "+localDataSet.get(position).getPrice().toString());
 
             viewHolder.getImageViewImage().setImageResource(localDataSet.get(position).getResourceId());
