@@ -27,21 +27,27 @@
         >
 
     </TextView>
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booklist_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
 
-        <include
-            layout="@layout/fragment_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="560dp" />
-    </LinearLayout>
+<!--&lt;!&ndash;        <include&ndash;&gt;-->
+<!--&lt;!&ndash;            layout="@layout/fragment_viewpager"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="560dp" />&ndash;&gt;-->
+<!--    </LinearLayout>-->
 
-    <include
-        layout="@layout/tab_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"/>
+<!--    <include-->
+<!--        layout="@layout/tab_navigation"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp" />-->
 
 
 </LinearLayout>

@@ -24,4 +24,13 @@
 <!--        android:layout_height="match_parent">-->
 
 <!--    </androidx.viewpager2.widget.ViewPager2>-->
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="end|bottom"-->
+<!--        android:src="@drawable/ic_tab_navigation_bookshelf"-->
+<!--        android:contentDescription="bookshelf"-->
+<!--        android:layout_margin="16dp" />-->
+
 </androidx.drawerlayout.widget.DrawerLayout>
