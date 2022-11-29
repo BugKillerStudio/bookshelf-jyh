@@ -1,38 +1,40 @@
 package com.jnu.student;
 
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
-//import com.jnu.student.adapter.TabPagerAdapter;
-//import com.jnu.student.adapter.main_book;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.clans.fab.FloatingActionMenu;
+import com.github.clans.fab.FloatingActionButton;
+
+import com.google.android.material.navigation.NavigationView;
 import com.jnu.student.data.DataSaver;
 import com.jnu.student.data.bookitem;
+import com.jnu.student.data.bookshelf;
+import com.jnu.student.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
     public static final int MENU_ID_UPDATE = 2;
     public static final int MENU_ID_DELETE = 3;
     private ArrayList<bookitem> bookitems;
+    private ArrayList<bookshelf> bookshelves;
     private MainRecycleViewAdapter mainRecycleViewAdapter;
+    private ActivityMainBinding binding;
 
     private ActivityResultLauncher<Intent> addDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result -> {
@@ -63,30 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        RecyclerView recyclerViewMain=findViewById(R.id.booklist_recycler_view);
-
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewMain.setLayoutManager(linearLayoutManager);
-
-        DataSaver dataSaver = new DataSaver();
-        bookitems = dataSaver.Load(this);
-
-//        bookitems = new ArrayList<>();
-//        bookitems.add(new bookitem("book1 ","author1","tsinghua","1234567890","default",(double)100.0,R.drawable.book1));
-//        bookitems.add(new bookitem("book1 ","author2","jnu","1234567890","default",(double)100.0,R.drawable.book2));
-//        bookitems.add(new bookitem("book1 ","author3","alibaba","1234567890","default",(double)100.0,R.drawable.book3));
-//        bookitems.add(new bookitem("book1 ","author4","baidu","1234567890","default",(double)100.0,R.drawable.book4));
-        mainRecycleViewAdapter= new MainRecycleViewAdapter(bookitems);
-        recyclerViewMain.setAdapter(mainRecycleViewAdapter);
-    }
-
     private ActivityResultLauncher<Intent> updateDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result -> {
                 if(null!=result){
@@ -102,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
                         double price=bundle.getDouble("price");
                         int position=bundle.getInt("position");
                         bookitems.get(position).setTitle(title);
-                        bookitems.get(position).setTitle(author);
-                        bookitems.get(position).setTitle(publish);
-                        bookitems.get(position).setTitle(isbn);
-                        bookitems.get(position).setTitle(bookshelf);
+                        bookitems.get(position).setAuthor(author);
+                        bookitems.get(position).setPublish(publish);
+                        bookitems.get(position).setIsbn(isbn);
+                        bookitems.get(position).setBookshelf(bookshelf);
                         bookitems.get(position).setPrice(price);
                         new DataSaver().Save(this,bookitems);
                         mainRecycleViewAdapter.notifyItemChanged(position);
@@ -114,11 +94,53 @@ public class MainActivity extends AppCompatActivity {
             });
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        RecyclerView recyclerViewMain=findViewById(R.id.booklist_recycler_view);
+
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewMain.setLayoutManager(linearLayoutManager);
+
+        DataSaver dataSaver = new DataSaver();
+        bookitems = dataSaver.Load(this);
+//        bookshelves = dataSaver.LoadBookshelf(this);
+//        bookshelves.add(new bookshelf("new_bookshelf1"));
+//        bookshelves.add(new bookshelf("new_bookshelf2"));
+//        bookitems = new ArrayList<>();
+//        bookitems.add(new bookitem("book1 ","author1","tsinghua","1234567890","default",(double)100.0,R.drawable.book1));
+//        bookitems.add(new bookitem("book1 ","author2","jnu","1234567890","default",(double)100.0,R.drawable.book2));
+//        bookitems.add(new bookitem("book1 ","author3","alibaba","1234567890","default",(double)100.0,R.drawable.book3));
+//        bookitems.add(new bookitem("book1 ","author4","baidu","1234567890","default",(double)100.0,R.drawable.book4));
+        mainRecycleViewAdapter= new MainRecycleViewAdapter(bookitems);
+        recyclerViewMain.setAdapter(mainRecycleViewAdapter);
+
+
+        ///Drawerlayout start
+
+        ///Drawerlayout end
+
+        //悬浮按钮
+        FloatingActionButton button=findViewById(R.id.addbutton);
+//        FloatingActionButton button=findViewById(R.id.fab_menu_add);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this ,AddBookItem.class) ;
+                intent.putExtra("position",bookitems.size());//传递当前books的长度
+                addDataLauncher.launch(intent);
+            }
+        });
+
+    }
+
+    @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
             case MENU_ID_ADD:
-
                 Intent intent=new Intent(this, AddBookItem.class);
                 intent.putExtra("position",item.getOrder());
                 addDataLauncher.launch(intent);
@@ -135,6 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 intentUpdate.putExtra("bookshelf",bookitems.get(item.getOrder()).getBookshelf());
                 intentUpdate.putExtra("publish",bookitems.get(item.getOrder()).getPublish());
                 intentUpdate.putExtra("price",bookitems.get(item.getOrder()).getPrice());
+                intentUpdate.putExtra("isbn",bookitems.get(item.getOrder()).getIsbn());
                 updateDataLauncher.launch(intentUpdate);
                 break;
             case MENU_ID_DELETE:
@@ -163,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
     public class MainRecycleViewAdapter extends RecyclerView.Adapter<MainRecycleViewAdapter.ViewHolder> {
 
         private ArrayList<bookitem> localDataSet;
+        private ArrayList<bookshelf> bookshelfDataSet;
 
         /**
          * Provide a reference to the type of views that you are using
@@ -174,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
             private final TextView textViewPrice;
             private final TextView textViewAuthor;
             private final TextView textViewBookshelf;
-//            private final TextView textViewIsbn;
-//            private final TextView textViewPublish;
+            private final TextView textViewIsbn;
+            private final TextView textViewPublish;
             private final ImageView imageViewImage;
 
             public ViewHolder(View view) {
@@ -186,8 +210,8 @@ public class MainActivity extends AppCompatActivity {
                 textViewPrice = view.findViewById(R.id.tv_price);
                 textViewAuthor = view.findViewById(R.id.tv_author);
                 textViewBookshelf = view.findViewById(R.id.tv_bookshelf);
-//                textViewIsbn = view.findViewById(R.id.tv_price);
-//                textViewPublish = view.findViewById(R.id.tv_price);
+                textViewIsbn = view.findViewById(R.id.tv_price);
+                textViewPublish = view.findViewById(R.id.tv_price);
 
                 view.setOnCreateContextMenuListener(this);
             }
@@ -198,12 +222,8 @@ public class MainActivity extends AppCompatActivity {
             public TextView getTextViewBookshelf() {
                 return textViewBookshelf;
             }
-//            public TextView getTextViewIsbn() {
-//                return textViewIsbn;
-//            }
-//            public TextView getTextViewPublish() {
-//                return textViewPublish;
-//            }
+            public TextView getTextViewIsbn() {return textViewIsbn;}
+            public TextView getTextViewPublish() {return textViewPublish;}
             public TextView getTextViewPrice() {
                 return textViewPrice;
             }
@@ -232,6 +252,10 @@ public class MainActivity extends AppCompatActivity {
             localDataSet = dataSet;
         }
 
+        public void BookshelfAdapter(ArrayList<bookshelf> bookshelves) {
+            bookshelfDataSet = bookshelves;
+        }
+
         // Create new views (invoked by the layout manager)
         @Override
         @NonNull
@@ -253,7 +277,10 @@ public class MainActivity extends AppCompatActivity {
             viewHolder.getTextViewAuthor().setText("Author: "+localDataSet.get(position).getAuthor());
             viewHolder.getTextViewBookshelf().setText("Bookshelf: "+localDataSet.get(position).getBookshelf());
             viewHolder.getTextViewPrice().setText("Price: "+localDataSet.get(position).getPrice().toString());
-
+            viewHolder.getTextViewIsbn().setText("Isbn"+localDataSet.get(position).getIsbn());
+            viewHolder.getTextViewPublish().setText("Publish"+localDataSet.get(position).getPublish());
+            viewHolder.getTextViewPrice().setText("Price"+localDataSet.get(position).getPrice());
+//            viewHolder.getImageViewImage().setImageResource(localDataSet.get(position).getResourceId());
             viewHolder.getImageViewImage().setImageResource(localDataSet.get(position).getResourceId());
         }
 

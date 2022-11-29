@@ -27,13 +27,8 @@
         >
 
     </TextView>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/booklist_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-<!--    <LinearLayout-->
+
+    <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:orientation="vertical">-->
@@ -48,6 +43,24 @@
 <!--        layout="@layout/tab_navigation"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="60dp" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/booklist_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/addbutton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_add"-->
+<!--        app:backgroundTint="@color/button_selete_main"-->
+<!--        android:layout_marginEnd="30dp"-->
+<!--        android:layout_marginBottom="20dp">-->
+
+<!--    </com.google.android.material.floatingactionbutton.FloatingActionButton>-->
 
 </LinearLayout>

@@ -34,7 +34,7 @@
                 android:id="@+id/textViewTile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="   Name  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -42,9 +42,9 @@
                 android:id="@+id/edittext_shop_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:hint="Input Book Name"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -59,7 +59,7 @@
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price"
+                android:text="    Price  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="001"
+                android:hint="Input Price"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -84,7 +84,7 @@
                 android:id="@+id/textViewAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Author"
+                android:text="  Author  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="unknow author"
+                android:hint="Input author"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
 
@@ -110,7 +110,7 @@
                 android:id="@+id/textViewPublish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Publish"
+                android:text=" Publish  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -120,7 +120,32 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="unknow publish"
+                android:hint="Input publish"
+                tools:layout_editor_absoluteX="165dp"
+                tools:layout_editor_absoluteY="217dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp"
+            >
+
+            <TextView
+                android:id="@+id/textViewIsbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    ISBN    "
+                tools:layout_editor_absoluteX="97dp"
+                tools:layout_editor_absoluteY="225dp" />
+
+            <EditText
+                android:id="@+id/edittext_shop_item_isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Input ISBN"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -139,20 +164,20 @@
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/edittext_shop_item_bookshelf"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:ems="10"-->
-<!--                android:inputType="textPersonName"-->
-<!--                android:text="001"-->
-<!--                tools:layout_editor_absoluteX="165dp"-->
-<!--                tools:layout_editor_absoluteY="217dp" />-->
-            <Spinner
-                android:id="@+id/bookshelf_selete"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/edittext_shop_item_bookshelf"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dropdown" />
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Input bookshelf"
+                tools:layout_editor_absoluteX="165dp"
+                tools:layout_editor_absoluteY="217dp" />
+<!--            <Spinner-->
+<!--                android:id="@+id/bookshelf_selete"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:spinnerMode="dropdown" />-->
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
