@@ -1,6 +1,7 @@
 package com.jnu.student;
 
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     public ActionBarDrawerToggle mActionBarDrawerToggle;
     public ImageView imageView;
     private NavigationView navView;//导航视图
+    private View.OnClickListener nav_button_listener;
 
     private ActivityResultLauncher<Intent> addDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result -> {
@@ -182,29 +185,54 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        navView = findViewById(R.id.activity_main_navigationView);
-        navView.setNavigationItemSelectedListener(item -> {//导航菜单点击
-            Intent intent = new Intent();
-            switch (item.getItemId()) {
-                case R.id.nav_home:
-                    intent.setClass(this, MainActivity.class);
-                    startActivity(intent);
-                    break;
-                case R.id.nav_about:
-//                    intent.setClass(this, AboutActivity.class);
+//        navView = findViewById(R.id.activity_main_navigationView);
+//        navView.setNavigationItemSelectedListener(item -> {//导航菜单点击
+//            Intent intent = new Intent();
+//            switch (item.getItemId()) {
+//                case R.id.nav_home:
+//                    intent.setClass(this, MainActivity.class);
 //                    startActivity(intent);
-                    Toast.makeText(MainActivity.this,"about",Toast.LENGTH_SHORT).show();
-                    break;
-                 }
-//            drawerLayout.closeDrawer(GravityCompat.START);//关闭滑动菜单
-            return true;
-        });
-        //menu button start
+//                    break;
+//                case R.id.nav_about:
+////                    intent.setClass(this, AboutActivity.class);
+////                    startActivity(intent);
+//                    Toast.makeText(MainActivity.this,"about",Toast.LENGTH_SHORT).show();
+//                    break;
+//                 }
+////            drawerLayout.closeDrawer(GravityCompat.START);//关闭滑动菜单
+//            return true;
+//        });
 
+        //menu button start
+        Button nav_home_button = findViewById(R.id.nav_home_button);
+        Button nav_about_button = findViewById(R.id.nav_about_button);
+        nav_home_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+//                Toast.makeText(MainActivity.this,"click home",Toast.LENGTH_SHORT).show();
+            }
+        });
+        nav_about_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, AboutActivity.class);
+                startActivity(intent);
+//                Toast.makeText(MainActivity.this,"click about",Toast.LENGTH_SHORT).show();
+            }
+        });
         //menu button end
+
     }
 
-    
+
+
+
+
+
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())

@@ -20,7 +20,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                android:background="@drawable/header"
+                android:background="@drawable/header_jnu"
                 android:orientation="vertical">
                 <ImageView
                     android:id="@+id/book_show"
@@ -32,17 +32,20 @@
                     android:padding="2dp"
                     android:scaleType="fitXY" />
                 <TextView
-                    android:text="侧边栏标题"
+                    android:text="图书管理系统"
                     android:textSize="25sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:layout_width="240dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
                 <TextView
-                    android:text="侧边栏文字"
+                    android:text="BY tuoyou-hao"
                     android:textSize="18sp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
+
                     android:layout_width="240dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"/>
             </LinearLayout>
 <!--            <com.google.android.material.navigation.NavigationView-->
 <!--                android:id="@+id/activity_main_navigationView"-->
@@ -75,14 +78,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:src="@drawable/ic_fab_img">
+                        android:src="@drawable/ic_setting">
 
                     </ImageView>
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/nav_home_button"
-                        android:text="首页"
+                        android:text="设置"
                         android:textSize="20dp"
                         android:background="@color/white">
 

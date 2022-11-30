@@ -23,6 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddBookItem" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".SettingActivity" />
     </application>
 
 </manifest>
