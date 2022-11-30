@@ -9,4 +9,6 @@
     <string name="button_确定">确定</string>
     <string name="button_取消">取消</string>
     <string name="update">the book updated!</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

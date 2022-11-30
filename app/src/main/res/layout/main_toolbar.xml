@@ -13,5 +13,14 @@
         app:subtitleTextColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/activity_main_navigationView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/button_main"
+            android:paddingLeft="0dp"
+            app:menu="@menu/activity_main_drawer"
+            android:layout_gravity="center_vertical">
+        </com.google.android.material.navigation.NavigationView>
     </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

@@ -11,12 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -46,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<bookshelf> bookshelves;
     private MainRecycleViewAdapter mainRecycleViewAdapter;
     private ActivityMainBinding binding;
+    public NavigationView mNavigationView;
+    public Toolbar mToolbar;
+    public DrawerLayout mDrawerLayout;
+    public ActionBarDrawerToggle mActionBarDrawerToggle;
+    public ImageView imageView;
+    private NavigationView navView;//导航视图
 
     private ActivityResultLauncher<Intent> addDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result -> {
@@ -134,6 +144,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //DrawerLayout
+//        imageView = findViewById(R.id.book_show);
+//        imageView.setImageResource(R.drawable.book_no_name);
+        mToolbar = (Toolbar) findViewById(R.id.second_toolbar);
+        mNavigationView = (NavigationView) findViewById(R.id.activity_main_navigationView);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.Frag_Drawerlayout);
+        mToolbar.inflateMenu(R.menu.activity_main_drawer);//添加toolbar的menu
+
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open,R.string.close) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+
+        mActionBarDrawerToggle.syncState();
+        mDrawerLayout.addDrawerListener(mActionBarDrawerToggle);//setDrawerListener弃用
+//        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int id = item.getItemId();
+//                switch (id){
+//                    case R.id.nav_home:
+//                        mDrawerLayout.closeDrawers();
+//                        break;
+//                    case R.id.nav_about:
+////                        mDrawerLayout.closeDrawers();
+//                        Toast.makeText(MainActivity.this,"click about",Toast.LENGTH_SHORT).show();
+//                        break;
+//                }
+//                return true;
+//            }
+//        });
+
+        navView = findViewById(R.id.activity_main_navigationView);
+        navView.setNavigationItemSelectedListener(item -> {//导航菜单点击
+            Intent intent = new Intent();
+            switch (item.getItemId()) {
+                case R.id.nav_home:
+                    intent.setClass(this, MainActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.nav_about:
+//                    intent.setClass(this, AboutActivity.class);
+//                    startActivity(intent);
+                    Toast.makeText(MainActivity.this,"about",Toast.LENGTH_SHORT).show();
+                    break;
+                 }
+//            drawerLayout.closeDrawer(GravityCompat.START);//关闭滑动菜单
+            return true;
+        });
+        //menu button start
+
+        //menu button end
     }
 
     
