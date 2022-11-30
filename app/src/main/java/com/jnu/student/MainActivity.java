@@ -129,13 +129,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this ,AddBookItem.class) ;
-                intent.putExtra("position",bookitems.size());//传递当前books的长度
+                intent.putExtra("position",bookitems.size()-1);//传递当前books的长度
                 addDataLauncher.launch(intent);
             }
         });
 
     }
 
+    
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())

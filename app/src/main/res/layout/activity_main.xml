@@ -17,9 +17,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include layout="@layout/fragment_home"/>
-
-<!--    <com.google.android.material.navigation.NavigationView-->
+    <!--    <com.google.android.material.navigation.NavigationView-->
 <!--        android:id="@+id/nav_view"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="match_parent"-->
@@ -163,16 +161,20 @@
 <!--            fab:fab_label="Edit book" />-->
 <!--    </com.github.clans.fab.FloatingActionMenu>-->
 
+    <include layout="@layout/frag2main" />
+
     <com.github.clans.fab.FloatingActionButton
         android:id="@+id/addbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
-        app:backgroundTint="@color/button_selete_main"
+        app:backgroundTint="@color/button_main"
         android:layout_gravity="bottom|right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         >
     </com.github.clans.fab.FloatingActionButton>
 <!--</androidx.drawerlayout.widget.DrawerLayout>-->
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
