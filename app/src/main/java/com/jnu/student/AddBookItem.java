@@ -110,7 +110,6 @@ public class AddBookItem extends AppCompatActivity {
     private String[] BookshelfArray = {"default1","default2","add"};
     class MySelectedListener implements AdapterView.OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> arg0,View arg1,int arg2,long arg3){
-            //发生选择的adapterview，adapterview中被点击的视图，视图在适配器中的位置，被选中项的行id
             if(arg2== BookshelfArray.length-1)
                 Toast.makeText(AddBookItem.this, "添加书架",
                         Toast.LENGTH_SHORT).show();

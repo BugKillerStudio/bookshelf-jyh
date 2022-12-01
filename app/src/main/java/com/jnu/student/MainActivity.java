@@ -44,7 +44,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private boolean isToast = false;
     public static final int MENU_ID_ADD = 1;
     public static final int MENU_ID_UPDATE = 2;
     public static final int MENU_ID_DELETE = 3;
@@ -88,16 +88,26 @@ public class MainActivity extends AppCompatActivity {
                     if(result.getResultCode()==BookInfoActivity.RESULT_CODE_SUCCESS)
                     {
                         Bundle bundle=intent.getExtras();
-                        String title= bundle.getString("title");
-                        String author= bundle.getString("author");
-                        String publish= bundle.getString("publish");
-                        String isbn= bundle.getString("isbn");
-                        String bookshelf= bundle.getString("bookshelf");
-                        double price=bundle.getDouble("price");
-                        int position=bundle.getInt("position")+1;
+//                        String title= bundle.getString("title");
+//                        String author= bundle.getString("author");
+//                        String publish= bundle.getString("publish");
+//                        String isbn= bundle.getString("isbn");
+//                        String bookshelf= bundle.getString("bookshelf");
+//                        double price=bundle.getDouble("price");
+//                        int position=bundle.getInt("position")+1;
 
 //                        mainRecycleViewAdapter.notifyItemInserted(position);
                     }
+                }
+            });
+
+    private ActivityResultLauncher<Intent> SettingLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
+            ,result -> {
+                if(null!=result){
+                    Intent intent=result.getData();
+                    Bundle bundle=intent.getExtras();
+                    isToast = bundle.getBoolean("switch_stat");
+//                    Toast.makeText(MainActivity.this,""+isToast,Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -165,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent=new Intent(MainActivity.this ,AddBookItem.class) ;
                 intent.putExtra("position",bookitems.size()-1);//传递当前books的长度
                 addDataLauncher.launch(intent);
+
             }
         });
 
@@ -232,7 +243,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, SettingActivity.class);
-                startActivity(intent);
+//                startActivity(intent);
+                SettingLauncher.launch(intent);
+//                startActivityForResult(intent,1);
+
+
 //                Toast.makeText(MainActivity.this,"click home",Toast.LENGTH_SHORT).show();
             }
         });
@@ -250,15 +265,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
             case MENU_ID_ADD:
+                if(isToast){
+                    Toast.makeText(MainActivity.this,""+bookitems.get(item.getOrder()).getTitle(),Toast.LENGTH_SHORT).show();
+                }
                 Intent intent=new Intent(this, BookInfoActivity.class);
                 intent.putExtra("position",item.getOrder());
                 intent.putExtra("position",item.getOrder());
@@ -295,6 +309,9 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 bookitems.remove(item.getOrder());
                                 mainRecycleViewAdapter.notifyItemRemoved(item.getOrder());
+                                if(isToast){
+                                    Toast.makeText(MainActivity.this,"delete success",Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }).setNegativeButton("no", new DialogInterface.OnClickListener() {
                             @Override
@@ -361,9 +378,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                contextMenu.add(0,MENU_ID_ADD,getAdapterPosition(),"Detail ID:"+getAdapterPosition());
-                contextMenu.add(0,MENU_ID_UPDATE,getAdapterPosition(),"Update ID:"+getAdapterPosition());
-                contextMenu.add(0,MENU_ID_DELETE,getAdapterPosition(),"Delete ID:"+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_ADD,getAdapterPosition(),"Detail    ID:"+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_UPDATE,getAdapterPosition(),"Update    ID:"+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_DELETE,getAdapterPosition(),"Delete    ID:"+getAdapterPosition());
             }
         }
 

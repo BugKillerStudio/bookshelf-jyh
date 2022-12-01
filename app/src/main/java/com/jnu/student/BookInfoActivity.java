@@ -27,7 +27,7 @@ public class BookInfoActivity extends AppCompatActivity {
         String publish = this.getIntent().getStringExtra("publish");
         Double price = this.getIntent().getDoubleExtra("price", 0);
 
-        Toast.makeText(BookInfoActivity.this,""+title,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(BookInfoActivity.this,""+title,Toast.LENGTH_SHORT).show();
 
         TextView editTextTitle = findViewById(R.id.book_show_title);
         TextView editTextPrice = findViewById(R.id.book_show_price);

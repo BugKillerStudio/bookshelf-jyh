@@ -1,10 +1,12 @@
 package com.jnu.student;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +24,7 @@ public class SettingActivity extends AppCompatActivity {
     private static final String TAG = "Setting";
     private Switch switch1;
     private TextView switch1_text;
+    private boolean switch_stat=false;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,22 +48,24 @@ public class SettingActivity extends AppCompatActivity {
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                String result = String.format("Switch按钮的状态是%s",
+                String result = String.format("Toast功能的状态是%s",
                         (switch1.isChecked()) ? "开" : "关");
                 switch1_text.setText(result);
+
+
             }
         });
 //        refreshResult(); // 刷新Switch按钮的开关说明
+        Intent intent=new Intent();
+        Bundle bundle=new Bundle();
+        switch_stat = switch1.isChecked();
+        bundle.putBoolean("switch_stat",switch_stat);
 
+        intent.putExtras(bundle);
+        setResult(666,intent);
 
     }
 
-    // 刷新Switch按钮的开关说明
-//    private void refreshResult() {
-//        String result = String.format("Switch按钮的状态是%s",
-//                (switch1.isChecked()) ? "开" : "关");
-//        switch1_text.setText(result);
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
