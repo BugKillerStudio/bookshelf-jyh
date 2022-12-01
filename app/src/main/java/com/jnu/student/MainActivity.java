@@ -80,6 +80,27 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
+
+    private ActivityResultLauncher<Intent> lookbookDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
+            ,result -> {
+                if(null!=result){
+                    Intent intent=result.getData();
+                    if(result.getResultCode()==BookInfoActivity.RESULT_CODE_SUCCESS)
+                    {
+                        Bundle bundle=intent.getExtras();
+                        String title= bundle.getString("title");
+                        String author= bundle.getString("author");
+                        String publish= bundle.getString("publish");
+                        String isbn= bundle.getString("isbn");
+                        String bookshelf= bundle.getString("bookshelf");
+                        double price=bundle.getDouble("price");
+                        int position=bundle.getInt("position")+1;
+
+//                        mainRecycleViewAdapter.notifyItemInserted(position);
+                    }
+                }
+            });
+
     private ActivityResultLauncher<Intent> updateDataLauncher= registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
             ,result -> {
                 if(null!=result){
@@ -238,9 +259,16 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId())
         {
             case MENU_ID_ADD:
-                Intent intent=new Intent(this, AddBookItem.class);
+                Intent intent=new Intent(this, BookInfoActivity.class);
                 intent.putExtra("position",item.getOrder());
-                addDataLauncher.launch(intent);
+                intent.putExtra("position",item.getOrder());
+                intent.putExtra("title",bookitems.get(item.getOrder()).getTitle());
+                intent.putExtra("author",bookitems.get(item.getOrder()).getAuthor());
+                intent.putExtra("bookshelf",bookitems.get(item.getOrder()).getBookshelf());
+                intent.putExtra("publish",bookitems.get(item.getOrder()).getPublish());
+                intent.putExtra("price",bookitems.get(item.getOrder()).getPrice());
+                intent.putExtra("isbn",bookitems.get(item.getOrder()).getIsbn());
+                lookbookDataLauncher.launch(intent);
 //                bookitems.add(item.getOrder(),new bookitem("added"+item.getOrder(),Math.random()*10,R.drawable.book_no_name));
 //                mainRecycleViewAdapter.notifyItemRangeInserted(item.getOrder(), 1);
                 break;
@@ -333,9 +361,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-                contextMenu.add(0,MENU_ID_ADD,getAdapterPosition(),"Add "+getAdapterPosition());
-                contextMenu.add(0,MENU_ID_UPDATE,getAdapterPosition(),"Update "+getAdapterPosition());
-                contextMenu.add(0,MENU_ID_DELETE,getAdapterPosition(),"Delete "+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_ADD,getAdapterPosition(),"Detail ID:"+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_UPDATE,getAdapterPosition(),"Update ID:"+getAdapterPosition());
+                contextMenu.add(0,MENU_ID_DELETE,getAdapterPosition(),"Delete ID:"+getAdapterPosition());
             }
         }
 

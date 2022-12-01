@@ -15,16 +15,17 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             app:menu="@menu/activity_main_drawer"
+            android:background="@drawable/side_nav_bar2"
             android:orientation="vertical"
             android:layout_gravity="left">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                android:background="@drawable/header_jnu"
                 android:orientation="vertical">
+                <!--android:background="@drawable/header_jnu"-->
                 <ImageView
                     android:id="@+id/book_show"
-                    android:src="@drawable/book_cover_default"
+                    android:src="@drawable/book_logo_1"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginBottom="0dp"
@@ -34,14 +35,14 @@
                 <TextView
                     android:text="图书管理系统"
                     android:textSize="25sp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"/>
                 <TextView
                     android:text="BY tuoyou-hao"
                     android:textSize="18sp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
 
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
@@ -85,9 +86,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/nav_home_button"
+                        android:backgroundTint="@color/main_toolbar_button_selector"
                         android:text="设置"
                         android:textSize="20dp"
-                        android:background="@color/white">
+                        >
 
                     </Button>
                 </LinearLayout>
@@ -101,7 +103,7 @@
 
                     </ImageView>
                     <Button
-                        android:background="@color/white"
+                        android:backgroundTint="@color/main_toolbar_button_selector"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/nav_about_button"

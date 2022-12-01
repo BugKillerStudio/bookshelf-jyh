@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BookName: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bookname"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bookshelf: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_bookshelf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="bookshelf"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="publish"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="author"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISBN: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_isbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="isbn"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price: "
+                android:textSize="25dp">
+
+            </TextView>
+            <TextView
+                android:id="@+id/book_show_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="price"
+                android:textSize="25dp">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="150dp"
+                android:background="@color/button_main"
+                android:text="Return"
+                android:textColor="@color/button_item_main"
+
+
+                ></Button>
+
+
+        </LinearLayout>
+</LinearLayout>
+</LinearLayout>

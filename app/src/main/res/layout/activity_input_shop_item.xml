@@ -18,8 +18,9 @@
             android:text="Please enter the information of the book"
             android:textSize="30sp"
             android:textStyle="bold"
+            android:textColor="@color/button_main"
 
-            android:shadowColor="@color/background_main"
+            android:shadowColor="@color/button_item_main"
             android:shadowRadius="3.0"
             android:shadowDx="10.0"
             android:shadowDy="10.0"
@@ -188,7 +189,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ok"
+                android:textColor="@color/button_item_main"
+                android:background="@color/button_main"
                 android:layout_gravity="center"
+
                 ></Button>
 
             <Button
@@ -197,6 +201,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/button_item_main"
+                android:background="@color/button_main"
                 android:text="Cancel"></Button>
         </LinearLayout>
 

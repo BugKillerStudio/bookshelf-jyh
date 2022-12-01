@@ -25,6 +25,7 @@
         <activity android:name=".AddBookItem" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".SettingActivity" />
+        <activity android:name=".BookInfoActivity" />
     </application>
 
 </manifest>

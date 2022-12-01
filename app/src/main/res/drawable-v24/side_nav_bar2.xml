@@ -1,0 +1,15 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="135"
+        android:endColor="#0B0B0E"
+        android:startColor="#E3A82A"
+        android:gradientRadius="50"
+        android:type="linear" />
+<!--    <gradient-->
+<!--        android:centerX="0.5"-->
+<!--        android:centerY="1"-->
+<!--        android:endColor="@color/button_item_main"-->
+<!--        android:startColor="@color/button_main"-->
+<!--        android:type="sweep" />-->
+</shape>
