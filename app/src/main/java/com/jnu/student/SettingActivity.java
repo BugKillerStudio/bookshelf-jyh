@@ -32,10 +32,11 @@ public class SettingActivity extends AppCompatActivity {
 
         Map<String, String> logEvents = new HashMap<>();
 
-        logEvents.clear();
-        logEvents.put("Name", "onCreate");
+//        logEvents.clear();
+//        logEvents.put("Name", "onCreate");
 
-
+        Boolean switch_stat = this.getIntent().getBooleanExtra("switch_stat",false);
+//        Toast.makeText(SettingActivity.this,""+switch_stat,Toast.LENGTH_SHORT).show();
         Toolbar mToolbar = (Toolbar) findViewById(R.id.second_toolbar);
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
@@ -45,6 +46,11 @@ public class SettingActivity extends AppCompatActivity {
 
         switch1 = findViewById(R.id.setting_switch1);
         switch1_text = findViewById(R.id.setting_switch1_text);
+
+        if(switch_stat){
+            switch1.setChecked(true);
+        }
+
         switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -56,13 +62,14 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 //        refreshResult(); // 刷新Switch按钮的开关说明
-        Intent intent=new Intent();
-        Bundle bundle=new Bundle();
-        switch_stat = switch1.isChecked();
-        bundle.putBoolean("switch_stat",switch_stat);
-
-        intent.putExtras(bundle);
-        setResult(666,intent);
+//        Intent intent=new Intent();
+//        Bundle bundle=new Bundle();
+//        switch_stat = switch1.isChecked();
+//        Toast.makeText(SettingActivity.this,""+switch_stat,Toast.LENGTH_SHORT).show();
+//        bundle.putBoolean("switch_stat",switch_stat);
+//
+//        intent.putExtras(bundle);
+//        setResult(666,intent);
 
     }
 
@@ -71,6 +78,13 @@ public class SettingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Intent intent=new Intent();
+                Bundle bundle=new Bundle();
+                switch_stat = switch1.isChecked();
+                bundle.putBoolean("switch_stat",switch_stat);
+
+                intent.putExtras(bundle);
+                setResult(666,intent);
                 finish();
                 break;
             default:

@@ -22,5 +22,10 @@
             app:menu="@menu/activity_main_drawer"
             android:layout_gravity="center_vertical">
         </com.google.android.material.navigation.NavigationView>
+        <android.widget.SearchView
+            android:id="@+id/searchview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:queryHint="请输入搜索内容"/>
     </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

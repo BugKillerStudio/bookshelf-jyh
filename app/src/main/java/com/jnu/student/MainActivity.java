@@ -1,6 +1,8 @@
 package com.jnu.student;
 
 
+import static java.lang.Math.random;
+
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
                         String bookshelf= bundle.getString("bookshelf");
                         double price=bundle.getDouble("price");
                         int position=bundle.getInt("position")+1;
-                        bookitems.add(position, new bookitem(title,author,publish,isbn,bookshelf,price,R.drawable.book_no_name) );
+                        int res = random()%2 ==0?R.drawable.book_no_name:R.drawable.book1;
+                        bookitems.add(position, new bookitem(title,author,publish,isbn,bookshelf,price,res) );
                         new DataSaver().Save(this,bookitems);
                         mainRecycleViewAdapter.notifyItemInserted(position);
                     }
@@ -106,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if(null!=result){
                     Intent intent=result.getData();
                     Bundle bundle=intent.getExtras();
+                    intent.putExtra("switch_stat",isToast);
                     isToast = bundle.getBoolean("switch_stat");
 //                    Toast.makeText(MainActivity.this,""+isToast,Toast.LENGTH_SHORT).show();
                 }
@@ -137,6 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        int i;
+        new DataSaver().Save(this.getBaseContext(),bookitems);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,10 +174,58 @@ public class MainActivity extends AppCompatActivity {
         mainRecycleViewAdapter= new MainRecycleViewAdapter(bookitems);
         recyclerViewMain.setAdapter(mainRecycleViewAdapter);
 
+        //search  start
+        SearchView searchView = findViewById(R.id.searchview);
+        searchView.setIconifiedByDefault(true);
+        searchView.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isToast) {
+                    Toast.makeText(MainActivity.this, "search!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                int i;
+                for (i = 0; i < bookitems.size(); i++) {
+                    if (query.equals(bookitems.get(i).getTitle())||query.equals(bookitems.get(i).getAuthor())||query.equals(bookitems.get(i).getIsbn())
+                            ||query.equals(bookitems.get(i).getPublish())||query.equals(bookitems.get(i).getIsbn()))
+                    {
+                        Intent intent_details=new Intent(MainActivity.this,BookInfoActivity.class) ;
+                        intent_details.putExtra("title",bookitems.get(i).getTitle());
+                        intent_details.putExtra("author",bookitems.get(i).getAuthor());
+                        intent_details.putExtra("bookshelf",bookitems.get(i).getBookshelf());
+                        intent_details.putExtra("publish",bookitems.get(i).getPublish());
+                        intent_details.putExtra("isbn",bookitems.get(i).getIsbn());
+                        intent_details.putExtra("price",bookitems.get(i).getPrice());
+                        lookbookDataLauncher.launch(intent_details);
+                        if(isToast) {
+                            Toast.makeText(MainActivity.this, "Search!", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    }
+                }
+                if (i == bookitems.size()) {
+                    Toast.makeText(MainActivity.this, "No this book!", Toast.LENGTH_SHORT).show();
+                }
 
-        ///Drawerlayout start
+                return false;
+            }
 
-        ///Drawerlayout end
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                return false;
+            }
+        });
+        /////search end
 
         //悬浮按钮
         FloatingActionButton button=findViewById(R.id.addbutton);
@@ -242,13 +303,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
+                intent.putExtra("switch_stat",isToast);
                 intent.setClass(MainActivity.this, SettingActivity.class);
 //                startActivity(intent);
                 SettingLauncher.launch(intent);
 //                startActivityForResult(intent,1);
 
 
-//                Toast.makeText(MainActivity.this,"click home",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this,""+isToast,Toast.LENGTH_SHORT).show();
             }
         });
         nav_about_button.setOnClickListener(new View.OnClickListener() {
@@ -257,7 +319,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
-//                Toast.makeText(MainActivity.this,"click about",Toast.LENGTH_SHORT).show();
+                if(isToast) {
+                    Toast.makeText(MainActivity.this, "click about", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         //menu button end
@@ -271,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
         {
             case MENU_ID_ADD:
                 if(isToast){
-                    Toast.makeText(MainActivity.this,""+bookitems.get(item.getOrder()).getTitle(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Name: "+bookitems.get(item.getOrder()).getTitle(),Toast.LENGTH_SHORT).show();
                 }
                 Intent intent=new Intent(this, BookInfoActivity.class);
                 intent.putExtra("position",item.getOrder());
@@ -283,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("price",bookitems.get(item.getOrder()).getPrice());
                 intent.putExtra("isbn",bookitems.get(item.getOrder()).getIsbn());
                 lookbookDataLauncher.launch(intent);
+
 //                bookitems.add(item.getOrder(),new bookitem("added"+item.getOrder(),Math.random()*10,R.drawable.book_no_name));
 //                mainRecycleViewAdapter.notifyItemRangeInserted(item.getOrder(), 1);
                 break;
@@ -298,6 +363,9 @@ public class MainActivity extends AppCompatActivity {
                 intentUpdate.putExtra("price",bookitems.get(item.getOrder()).getPrice());
                 intentUpdate.putExtra("isbn",bookitems.get(item.getOrder()).getIsbn());
                 updateDataLauncher.launch(intentUpdate);
+                if(isToast){
+                    Toast.makeText(MainActivity.this,"UPDATE",Toast.LENGTH_SHORT).show();
+                }
                 break;
             case MENU_ID_DELETE:
                 AlertDialog alertDialog;
@@ -320,6 +388,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }).create();
                 alertDialog.show();
+
                 break;
         }
         return super.onContextItemSelected(item);
