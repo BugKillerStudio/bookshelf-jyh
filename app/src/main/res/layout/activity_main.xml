@@ -171,7 +171,7 @@
         android:src="@drawable/ic_add_y"
         app:backgroundTint="@color/background_main"
         app:fab_colorNormal="@color/button_main"
-        app:fab_colorPressed="@color/background_main"
+        app:fab_colorPressed="#754742"
         android:layout_gravity="bottom|right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"

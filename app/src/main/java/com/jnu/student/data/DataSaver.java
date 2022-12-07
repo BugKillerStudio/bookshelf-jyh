@@ -44,33 +44,4 @@ public class DataSaver implements Serializable {
 //        Toast.makeText(MainActivity.this, "触发事件", Toast.LENGTH_SHORT).show();
         return data;
     }
-////////
-//public void SaveBookshelf(Context context, ArrayList<bookshelf> data)
-//{
-//    try {
-//        FileOutputStream dataStream=context.openFileOutput("bookshelf_item.dat",Context.MODE_PRIVATE);
-//        ObjectOutputStream out = new ObjectOutputStream(dataStream);
-//        out.writeObject(data);
-//        out.close();
-//        dataStream.close();
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
-//}
-//    @NonNull
-//    public ArrayList<bookshelf> LoadBookshelf(Context context)
-//    {
-//        ArrayList<bookshelf> data=new ArrayList<>();
-//        try {
-//            FileInputStream fileIn = context.openFileInput("bookshelf_item.dat");
-//            ObjectInputStream in = new ObjectInputStream(fileIn);
-//            data = (ArrayList<bookshelf>) in.readObject();
-//            in.close();
-//            fileIn.close();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-////        Toast.makeText(MainActivity.this, "触发事件", Toast.LENGTH_SHORT).show();
-//        return data;
-//    }
 }
