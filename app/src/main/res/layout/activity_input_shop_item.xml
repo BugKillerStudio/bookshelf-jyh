@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Please enter the information of the book"
+            android:text="@string/please_enter_the_information_of_the_book"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/button_main"
@@ -38,7 +38,7 @@
                 android:id="@+id/textViewTile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="   Name  "
+                android:text="   Name   "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -46,7 +46,7 @@
                 android:id="@+id/edittext_shop_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Input Book Name"
+                android:hint="@string/add_input_book_name"
                 android:ems="10"
                 android:inputType="textPersonName"
                 tools:layout_editor_absoluteX="165dp"
@@ -63,7 +63,7 @@
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="    Price  "
+                android:text="   Price    "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Input Price"
+                android:hint="@string/add_input_price"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -88,7 +88,7 @@
                 android:id="@+id/textViewAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  Author  "
+                android:text="   Author  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Input author"
+                android:hint="@string/add_input_author"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
 
@@ -114,7 +114,7 @@
                 android:id="@+id/textViewPublish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Publish  "
+                android:text="  Publish  "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Input publish"
+                android:hint="@string/add_input_publish"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -139,7 +139,7 @@
                 android:id="@+id/textViewIsbn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="    ISBN    "
+                android:text="    ISBN     "
                 tools:layout_editor_absoluteX="97dp"
                 tools:layout_editor_absoluteY="225dp" />
 
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Input ISBN"
+                android:hint="@string/add_input_isbn"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
         </LinearLayout>
@@ -174,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Input bookshelf"
+                android:hint="@string/add_input_bookshelf"
                 tools:layout_editor_absoluteX="165dp"
                 tools:layout_editor_absoluteY="217dp" />
 <!--            <Spinner-->
@@ -183,10 +183,13 @@
 <!--                android:layout_height="wrap_content"-->
 <!--                android:spinnerMode="dropdown" />-->
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp">
+
             <Button
                 android:id="@+id/button_ok"
                 android:layout_marginStart="70dp"
@@ -195,9 +198,7 @@
                 android:text="Ok"
                 android:textColor="@color/button_item_main"
                 android:background="@drawable/radius_button"
-                android:layout_gravity="center"
-
-                ></Button>
+                android:layout_gravity="center" />
 
             <Button
                 android:id="@+id/button_cancel"
@@ -207,7 +208,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/button_item_main"
                 android:background="@drawable/radius_button"
-                android:text="Cancel"></Button>
+                android:text="Cancel" />
         </LinearLayout>
     <ImageView
         android:id="@+id/image_click"

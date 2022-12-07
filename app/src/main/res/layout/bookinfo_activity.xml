@@ -8,6 +8,23 @@
     android:background="@color/background_main">
 
     <include layout="@layout/main_toolbar"/>
+    <TextView
+        android:id="@+id/Android_main_title_text"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:gravity="center"
+        android:text="@string/book_information"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/button_main"
+
+        android:shadowColor="@color/white"
+        android:shadowRadius="3.0"
+        android:shadowDx="10.0"
+        android:shadowDy="10.0"
+        >
+
+    </TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,6 +32,7 @@
         android:orientation="horizontal"
         android:background="@drawable/radius"
         >
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BookName: "
+            android:text="@string/info_bookname"
             android:textSize="25dp"
             android:layout_gravity="center">
 
@@ -33,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Bookshelf: "
+            android:text="@string/info_bookshelf"
             android:textSize="25dp">
 
         </TextView>
@@ -41,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Publish: "
+            android:text="@string/info_publish"
             android:textSize="25dp">
 
         </TextView>
@@ -49,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Author: "
+            android:text="@string/info_author"
             android:textSize="25dp">
 
         </TextView>
@@ -57,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="ISBN: "
+            android:text="@string/info_isbn"
             android:textSize="25dp">
 
         </TextView>
@@ -79,7 +97,7 @@
                 android:id="@+id/book_show_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="bookname"
+                android:text="@string/info_read_bookname"
                 android:textSize="25dp">
 
             </TextView>
@@ -88,7 +106,7 @@
                 android:id="@+id/book_show_bookshelf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="bookshelf"
+                android:text="@string/info_read_bookshelf"
                 android:textSize="25dp">
 
             </TextView>
@@ -97,7 +115,7 @@
                 android:id="@+id/book_show_publish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="publish"
+                android:text="@string/info_read_publish"
                 android:textSize="25dp">
 
             </TextView>
@@ -106,7 +124,7 @@
                 android:id="@+id/book_show_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="author"
+                android:text="@string/info_read_author"
                 android:textSize="25dp">
 
             </TextView>
@@ -115,7 +133,7 @@
                 android:id="@+id/book_show_isbn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="isbn"
+                android:text="@string/info_read_isbn"
                 android:textSize="25dp">
 
             </TextView>
@@ -124,7 +142,7 @@
                 android:id="@+id/book_show_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="price"
+                android:text="@string/info_read_price"
                 android:textSize="25dp">
 
             </TextView>
@@ -147,9 +165,7 @@
                 android:background="@drawable/radius_button"
                 android:text="Return"
                 android:textColor="@color/button_item_main"
-
-
-                ></Button>
+                />
 
 
         </LinearLayout>

@@ -77,7 +77,20 @@ public class MainActivity extends AppCompatActivity {
                         String bookshelf= bundle.getString("bookshelf");
                         double price=bundle.getDouble("price");
                         int position=bundle.getInt("position")+1;
-                        int res = random()%2 ==0?R.drawable.book_no_name:R.drawable.book1;
+                        int res = bookitems.size()%4;
+                        switch(res){
+                            case 1:
+                                res = R.drawable.book1;
+                                break;
+                            case 3:
+                                res = R.drawable.book2;
+                                break;
+                            case 2:
+                                res = R.drawable.book3;
+                                break;
+                            default:
+                                res = R.drawable.book4;
+                        }
                         bookitems.add(position, new bookitem(title,author,publish,isbn,bookshelf,price,res) );
                         new DataSaver().Save(this,bookitems);
                         mainRecycleViewAdapter.notifyItemInserted(position);
