@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/background_main">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@drawable/radius"
+        android:radius="4dp"
         >
         <TextView
             android:id="@+id/book_old_name"
@@ -19,7 +22,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="@color/button_main"
-
+            android:background="@drawable/side_title"
             android:shadowColor="@color/button_item_main"
             android:shadowRadius="3.0"
             android:shadowDx="10.0"
@@ -182,7 +185,8 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
             <Button
                 android:id="@+id/button_ok"
                 android:layout_marginStart="70dp"
@@ -190,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ok"
                 android:textColor="@color/button_item_main"
-                android:background="@color/button_main"
+                android:background="@drawable/radius_button"
                 android:layout_gravity="center"
 
                 ></Button>
@@ -202,9 +206,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="@color/button_item_main"
-                android:background="@color/button_main"
+                android:background="@drawable/radius_button"
                 android:text="Cancel"></Button>
         </LinearLayout>
+    <ImageView
+        android:id="@+id/image_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="60dp"
+        android:src="@drawable/flowerpot"
+        android:background="@color/background_main"
+        >
 
+    </ImageView>
     </LinearLayout>
 </LinearLayout>

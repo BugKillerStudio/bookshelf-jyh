@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/background_main">
 <!--    <androidx.appcompat.widget.Toolbar-->
 <!--        android:id="@+id/main_toolbar"-->
 <!--        android:layout_height="?attr/actionBarSize"-->
@@ -22,9 +23,9 @@
         android:text="Android图书管理"
         android:textSize="35sp"
         android:textStyle="bold"
+        android:textColor="@color/button_main"
 
-
-        android:shadowColor="@color/background_main"
+        android:shadowColor="@color/white"
         android:shadowRadius="3.0"
         android:shadowDx="10.0"
         android:shadowDy="10.0"

@@ -33,6 +33,7 @@
                     android:padding="2dp"
                     android:scaleType="fitXY" />
                 <TextView
+                    android:paddingStart="5dp"
                     android:text="图书管理系统"
                     android:textSize="25sp"
                     android:textColor="@android:color/white"
@@ -41,6 +42,7 @@
                     android:textStyle="bold"/>
                 <TextView
                     android:text="BY tuoyou-hao"
+                    android:paddingStart="5dp"
                     android:textSize="18sp"
                     android:textColor="@android:color/white"
 
@@ -88,7 +90,8 @@
                         android:id="@+id/nav_home_button"
                         android:backgroundTint="@color/main_toolbar_button_selector"
                         android:text="设置"
-                        android:textSize="20dp"
+                        android:layout_gravity="center"
+                        android:textSize="19dp"
                         >
 
                     </Button>
@@ -107,13 +110,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/nav_about_button"
+                        android:layout_gravity="center"
                         android:text="关于"
-                        android:textSize="20dp">
+                        android:textSize="19dp">
 
                     </Button>
                 </LinearLayout>
 
+                <ImageView
+                    android:paddingTop="300dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:alpha="80"
+                    android:src="@drawable/book_logo_3">
+
+                </ImageView>
             </LinearLayout>
+
         </LinearLayout>
 
 <!--    <com.google.android.material.navigation.NavigationView-->

@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         mainRecycleViewAdapter= new MainRecycleViewAdapter(bookitems);
         recyclerViewMain.setAdapter(mainRecycleViewAdapter);
 
+
         //search  start
         SearchView searchView = findViewById(R.id.searchview);
         searchView.setIconifiedByDefault(true);

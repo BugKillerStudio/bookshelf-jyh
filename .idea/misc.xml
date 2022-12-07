@@ -9,13 +9,22 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/hw_1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.167" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/hw_1/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.167" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.245" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/radius.xml" value="0.2095" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/radius_button.xml" value="0.2095" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.245" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/side_nav_bar2.xml" value="0.2395" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/side_title.xml" value="0.2095" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/tab_bg_selector.xml" value="0.245" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable-v24/tab_text_selector.xml" value="0.245" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/button_sel.xml" value="0.193" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/button_shadow.xml" value="0.2395" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_add_y.xml" value="0.2395" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_book1.xml" value="0.2095" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_book3.xml" value="0.2095" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_book4.xml" value="0.2095" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_fab_img.xml" value="0.2095" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_setting.xml" value="0.2095" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_tab_navigation_about.xml" value="0.245" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_tab_navigation_book.xml" value="0.245" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/drawable/ic_tab_navigation_bookshelf.xml" value="0.1675" />
@@ -23,7 +32,7 @@
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/about_activity.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_book_detail_content.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_book_detail_header.xml" value="0.24270833333333333" />
-        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_input_shop_item.xml" value="0.3509963768115942" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_input_shop_item.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/activity_main_recycle_view.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/app_bar_main.xml" value="0.3509963768115942" />
@@ -46,6 +55,7 @@
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/main_toolbar.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/nav_header_main.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/poi_detail_bottom.xml" value="0.3609375" />
+        <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/radius.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/setting_activity.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/layout/tab_navigation.xml" value="0.3509963768115942" />
         <entry key="..\:/Users/ASUS/Desktop/jnu-homework/android/bookshelf-jyh/app/src/main/res/menu/activity_main_drawer.xml" value="0.3578125" />
