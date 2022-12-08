@@ -242,15 +242,31 @@ public class MainActivity extends AppCompatActivity {
         /////search end
 
         //悬浮按钮
+        FloatingActionMenu button_menu = findViewById(R.id.fab_menu_add);
         FloatingActionButton button=findViewById(R.id.addbutton);
 //        FloatingActionButton button=findViewById(R.id.fab_menu_add);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this ,AddBookItem.class) ;
-                intent.putExtra("position",bookitems.size()-1);//传递当前books的长度
-                addDataLauncher.launch(intent);
 
+                Intent intent=new Intent(MainActivity.this ,AddBookItem.class) ;
+                intent.putExtra("position", bookitems.size() - 1);//传递当前books的长度
+                addDataLauncher.launch(intent);
+            }
+        });
+        //悬浮按钮
+        FloatingActionButton button2=findViewById(R.id.addbutton2);
+//        FloatingActionButton button=findViewById(R.id.fab_menu_add);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                for(int i=0;i<5;i++) {
+
+                    intent = new Intent(MainActivity.this, AddBookItem.class);
+                    intent.putExtra("position", 0);//传递当前books的长度
+                    addDataLauncher.launch(intent);
+                }
             }
         });
 

@@ -23,11 +23,13 @@ import java.util.ArrayList;
 public class AddBookItem extends AppCompatActivity {
     public static final int RESULT_CODE_SUCCESS = 666;
     private int position;
+    public static int click_flag=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_shop_item);
+//        click_flag=0;
 //        initSpinnerForDropdown(); // 初始化下拉模式的列表框
 
         position= this.getIntent().getIntExtra("position",0);
@@ -79,6 +81,7 @@ public class AddBookItem extends AppCompatActivity {
                 intent.putExtras(bundle);
                 setResult(RESULT_CODE_SUCCESS,intent);
                 AddBookItem.this.finish();
+//                reload();
             }
         });
 
@@ -86,9 +89,21 @@ public class AddBookItem extends AppCompatActivity {
         buttoncancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                click_flag=1;
                 AddBookItem.this.finish();
+//                reload();
             }
         });
+
+
+    }
+    public void reload() {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(intent);
     }
 
 }

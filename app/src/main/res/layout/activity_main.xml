@@ -12,6 +12,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -164,19 +165,56 @@
 
     <include layout="@layout/frag2main" />
 
-    <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/addbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_y"
-        app:backgroundTint="@color/background_main"
-        app:fab_colorNormal="@color/button_main"
-        app:fab_colorPressed="#754742"
-        android:layout_gravity="bottom|right"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        >
-    </com.github.clans.fab.FloatingActionButton>
+<!--    <com.github.clans.fab.FloatingActionButton-->
+<!--        android:id="@+id/addbutton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_add_y"-->
+<!--        app:backgroundTint="@color/background_main"-->
+<!--        app:fab_colorNormal="@color/button_main"-->
+<!--        app:fab_colorPressed="#754742"-->
+<!--        android:layout_gravity="bottom|right"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        >-->
+<!--    </com.github.clans.fab.FloatingActionButton>-->
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/fab_menu_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            app:menu_icon="@drawable/ic_add_y"
+            app:menu_colorNormal="@color/button_main"
+            app:menu_colorPressed="#754742"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            fab:menu_labels_ellipsize="end"
+            fab:menu_labels_singleLine="true"
+            fab:menu_backgroundColor="#ccffffff">
+
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/addbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fab_img"
+                app:fab_colorNormal="@color/button_main"
+                app:fab_colorPressed="#754742"
+                fab:fab_size="mini"
+                fab:fab_label="添加书本" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/addbutton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_tab_navigation_bookshelf"
+                app:fab_colorNormal="@color/button_main"
+                app:fab_colorPressed="#754742"
+                fab:fab_size="mini"
+                fab:fab_label="批量添加" />
+        </com.github.clans.fab.FloatingActionMenu>
 <!--</androidx.drawerlayout.widget.DrawerLayout>-->
 
 
